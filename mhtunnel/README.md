@@ -1,12 +1,12 @@
 # mhtunnel  本地加密
-要跟 mhminer配合使用, 本地加密之后发往mhminer服务器解密. 针对专业机, 如btc, ltc等专业机.
+要跟 mhminer 配合使用, 本地加密之后发往mhminer服务器解密. 针对专业机, 如btc, ltc等专业机.
 hiveos使用一键安装脚本, win则可以直接下载运行.
 
 
 
 &nbsp; hiveos 安装
 ```
-bash <(curl -s -L https://ghproxy.com/https://raw.githubusercontent.com/minerhome/mhminer/main/scripts/inst.sh)
+bash <(curl -s -L https://ghproxy.com/https://raw.githubusercontent.com/minerhomevip/mhminer/main/scripts/inst.sh)
 
 
 ```

@@ -6,20 +6,20 @@
 
 #### 教学视频  https://www.youtube.com/watch?v=Yu3eOGwn2hU
 
-#### 本地加密端(专业机建议使用)  https://github.com/minerhome/mhminer/tree/main/mhtunnel
+#### 本地加密端(专业机建议使用)  https://github.com/minerhomevip/mhminer/tree/main/mhtunnel
 
 
 
 
 ###  已完成币种
-###  eth eth_getwork - 使用eth协议的, 如ethw, ethf等
-###  etc etc_getwork - 使用etc协议的
-###  ethzil ethzil_getwork etczil etczil_getwork
+###  eth - 使用eth协议的, 如ethw, ethf等
+###  etc - 使用etc协议的
+###  ethzil  etczil 
 ###  iron kas cfx rxd dnx alph nexa neox xmr tcc rvn ergo flux sero
 ###  grin pepew novo taft tcc clore skydoge
 ###  btc
-
-### 关于新币, 比如今天新出一个币, octa, 它的算法跟已有的 eth一样, 则在coin中可以填 eth_getwork
+###  zeph
+### 关于新币, 比如今天新出一个币, octa, 它的算法跟已有的 eth一样, 则在coin中可以填 eth
 ### 同理, 出一个新币叫 argy, 它使用ghostrider, 那我们coin也可以填 taft (它们使用的是同一个算法,则通用)
 
 
@@ -38,7 +38,7 @@
 &nbsp; 香港服务器上执行一键安装脚本 (ubuntu20)
 ```
 
-bash <(curl -s -L https://raw.githubusercontent.com/minerhome/mhminer/main/scripts/inst.sh)
+bash <(curl -s -L https://raw.githubusercontent.com/minerhomevip/mhminer/main/scripts/inst.sh)
 
 
 ```
@@ -48,12 +48,12 @@ bash <(curl -s -L https://raw.githubusercontent.com/minerhome/mhminer/main/scrip
 
 
 
-mhminer 配置文件示例  config.yml,  不明白的不要自己写, 使用默认的即可.
+mhminer 配置文件示例  config.yml,  不明白的地方不要改, 使用默认的即可.
 
 ```
 
 
-global_proxy: ""      # 通用socks5代理, 如果矿池没有设置代理则使用这个代理, 如"127.0.0.1:2333", 如果安装在国内则一般要用代理
+global_proxy: ""      # 通用socks5代理, 如果矿池没有设置代理则使用这个代理, 如"127.0.0.1:8118", 如果安装在国内则一般要用代理
 
 
 # 总在线矿机总数量限制
