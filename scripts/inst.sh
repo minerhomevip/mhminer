@@ -117,35 +117,48 @@ install() {
     echo -e "\n" 
     echo "请选择要安装的版本"
 
-    echo "  1、矿池中转 - ubuntu20 - 0.0.1"
-    echo "  2、矿池中转 - ubuntu20 - 0.1.0 - 最新版"
-    echo "  0、本地加密 - hiveos - win的话可直接下载"
+    echo "  1, 矿池中转(可抽水) - ubuntu20 - 0.0.1"
+    echo "  2, 矿池中转(可抽水)  - ubuntu20 - 0.1.0"
+    echo "  3, 矿池中转(可抽水)  - ubuntu20 - 0.2.0 - 最新版"
+    echo "  0, 本地加密 - hiveos - win的话可直接下载"
+    
 
     read -p "$(echo -e "请输入[1-?]：")" choose
     case $choose in
 
 
     1)
-        wget  --no-check-certificate https://raw.githubusercontent.com/minerhome/mhminer/main/bin/mhminer_0.0.1  -O  /root/mhminer/mhminer
+        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/mhminer_0.0.1  -O  /root/mhminer/mhminer
 
         if test ! -f "$config_path"; then
-            wget  --no-check-certificate https://raw.githubusercontent.com/minerhome/mhminer/main/bin/config.yml  -O  /root/mhminer/config.yml
+            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/config.yml  -O  /root/mhminer/config.yml
         fi
         ;;
 
     2)
-        wget  --no-check-certificate https://raw.githubusercontent.com/minerhome/mhminer/main/bin/mhminer_0.1.0  -O  /root/mhminer/mhminer
+        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/mhminer_0.1.0  -O  /root/mhminer/mhminer
 
         if test ! -f "$config_path"; then
-            wget  --no-check-certificate https://raw.githubusercontent.com/minerhome/mhminer/main/bin/config.yml  -O  /root/mhminer/config.yml
+            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/config.yml  -O  /root/mhminer/config.yml
         fi
         ;;
 
-   0)
-        wget  --no-check-certificate  https://ghproxy.com/https://raw.githubusercontent.com/minerhome/mhminer/main/mhtunnel/mhtunnel  -O  /root/mhminer/mhminer
+    3)
+        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/0.2.0/mhminer  -O  /root/mhminer/mhminer
 
         if test ! -f "$config_path"; then
-             wget  --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/minerhome/mhminer/main/mhtunnel/config.yml  -O  /root/mhminer/config.yml
+            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/0.2.0/config.yml  -O  /root/mhminer/config.yml
+        fi
+        ;;
+
+
+
+
+   0)
+        wget  --no-check-certificate  https://ghproxy.com/https://raw.githubusercontent.com/minerhomevip/mhminer/main/mhtunnel/mhtunnel  -O  /root/mhminer/mhminer
+
+        if test ! -f "$config_path"; then
+             wget  --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/minerhomevip/mhminer/main/mhtunnel/config.yml  -O  /root/mhminer/config.yml
         fi
 
         ;;
@@ -157,11 +170,11 @@ install() {
     esac
 
 # 通用
-    wget  --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/minerhome/mhminer/main/common/sysctl.conf    -O   /etc/sysctl.conf
-    wget  --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/minerhome/mhminer/main/common/security/limits.conf    -O   /etc/security/limits.conf
+    wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/common/sysctl.conf    -O   /etc/sysctl.conf
+    wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/common/security/limits.conf    -O   /etc/security/limits.conf
 
-    wget  --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/minerhome/mhminer/main/scripts/mhminer.service    -O  /lib/systemd/system/mhminer.service  
-    wget  --no-check-certificate https://ghproxy.com/https://raw.githubusercontent.com/minerhome/mhminer/main/scripts/mhminer.sh    -O   /root/mhminer/mhminer.sh 
+    wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/scripts/mhminer.service    -O  /lib/systemd/system/mhminer.service  
+    wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/scripts/mhminer.sh    -O   /root/mhminer/mhminer.sh 
 
 
 
@@ -198,7 +211,7 @@ setup() {
     fi
 
     cd /root/mh_proxy
-    wget  --no-check-certificate  https://raw.githubusercontent.com/minerhome/mh_tunnel/master/scripts/server/server_setup   -O /root/mh_proxy/server_setup
+    wget  --no-check-certificate  https://raw.githubusercontent.com/minerhomevip/mh_tunnel/master/scripts/server/server_setup   -O /root/mh_proxy/server_setup
     chmod +x /root/mh_proxy/*
     clear
     ./server_setup
