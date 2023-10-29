@@ -1,10 +1,6 @@
 
 
 
-# write_log: true
-# debug: true
-# SUPER_DEBUG: true
-
 
 global_proxy: ""        # 通用代理, 如果矿池没有设置代理则使用这个代理    如"127.0.0.1:2333"
 global_ip: ""           # 本地加密端专用, 指定专线ip, 否则走公用服务器
@@ -27,116 +23,6 @@ key: key.pem
 
 
 servers:
-  - name: IRON-英雄-ssl
-    ip: 0.0.0.0:17650      
-    ssl: true             
-    coin: IRON             
-    pool:  
-      ip: hk.ironfish.herominers.com:1145
-      ssl: false
-    devfee:  
-      - name: "小王"
-        worker_name: "devfee-1"
-        fee_percent: 2      
-        address: "7d878a6b6fb8cdaa32b334091e3fee5483eb9e7c3933b386e2bf4a1bf44dc36a"   
-  - name: IRON-英雄-tcp
-    ip: 0.0.0.0:17655      
-    ssl: false             
-    coin: IRON             
-    pool:  
-      ip: hk.ironfish.herominers.com:1145
-      ssl: false
-    devfee:  
-      - name: "小王"
-        worker_name: "devfee-1"
-        fee_percent: 2      
-        address: "7d878a6b6fb8cdaa32b334091e3fee5483eb9e7c3933b386e2bf4a1bf44dc36a"   
-  - name: IRON-鱼池-ssl
-    ip: 0.0.0.0:17660      
-    ssl: true              
-    coin: IRON             
-    pool:  
-      ip: iron-asia.f2pool.com:1500
-      ssl: false
-    devfee:  
-      - name: "小王"
-        worker_name: "devfee-1"
-        fee_percent: 2      
-        address: "viponedream"   
-  - name: IRON-鱼池-tcp
-    ip: 0.0.0.0:17665      
-    ssl: false              
-    coin: IRON             
-    pool:  
-      ip: iron-asia.f2pool.com:1500
-      ssl: false
-    devfee:  
-      - name: "小王"
-        worker_name: "devfee-1"
-        fee_percent: 2      
-        address: "viponedream"   
-
-
-
-
-  - name: RXD-rplant-ssl
-    ip: 0.0.0.0:10150     
-    ssl: true
-    coin: RXD            
-    pool: 
-      ip: stratum-asia.rplant.xyz:7086
-      ssl: false
-    devfee:  
-      - name: 同学
-        worker_name: "devfee-1"
-        fee_percent: 2     
-        address: "1KFFbumRuJhyWSTZNRPEPy1DjDj5rKnSJD"
-  - name: RXD-rplant-tcp
-    ip: 0.0.0.0:10155     
-    ssl: false
-    coin: RXD            
-    pool: 
-      ip: stratum-asia.rplant.xyz:7086
-      ssl: false
-    devfee:  
-      - name: 同学
-        worker_name: "devfee-1"
-        fee_percent: 2     
-        address: "1KFFbumRuJhyWSTZNRPEPy1DjDj5rKnSJD"   
-  - name: RXD-毛池-ssl
-    ip: 0.0.0.0:10160      
-    ssl: true
-    coin: RXD             
-    pool:  
-      ip: pool.sg.woolypooly.com:3122
-      ssl: false
-    devfee:  
-      - name: 同学
-        worker_name: "devfee-1"
-        fee_percent: 2     
-        address: "1KFFbumRuJhyWSTZNRPEPy1DjDj5rKnSJD"   
-  - name: RXD-毛池-tcp
-    ip: 0.0.0.0:10165      
-    ssl: false
-    coin: RXD             
-    pool:  
-      ip: pool.sg.woolypooly.com:3122
-      ssl: false
-    devfee:  
-      - name: 同学
-        worker_name: "devfee-1"
-        fee_percent: 2     
-        address: "1KFFbumRuJhyWSTZNRPEPy1DjDj5rKnSJD"   
-
-
-
-
-# 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的
-# 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的
-# 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的
-# 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的 # 下面为新的
-
-
 
 #  ethf
   - name: ETHF EZIL - TCP
