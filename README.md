@@ -1,12 +1,14 @@
 # mhminer
+
+## 本地加密端(专业机建议使用)  https://github.com/minerhomevip/mhminer/tree/main/mhtunnel
+
+
 国内加密挖矿,矿池中转代理抽水软件  支持windows和ubuntu 20
 也可到群里下载, QQ群: 140777161
 电报群 https://t.me/+2vpGD-JpiEIxZDk9
 
 
 #### 教学视频  https://www.youtube.com/watch?v=Yu3eOGwn2hU
-
-#### 本地加密端(专业机建议使用)  https://github.com/minerhomevip/mhminer/tree/main/mhtunnel
 
 
 
