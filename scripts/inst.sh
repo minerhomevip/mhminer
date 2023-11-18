@@ -117,9 +117,10 @@ install() {
     echo -e "\n" 
     echo "请选择要安装的版本"
 
-    echo "  1, 矿池中转(可抽水) - ubuntu20 - 0.0.1"
+    echo "  1, 矿池中转(可抽水)  - ubuntu20 - 0.0.1"
     echo "  2, 矿池中转(可抽水)  - ubuntu20 - 0.1.0"
-    echo "  3, 矿池中转(可抽水)  - ubuntu20 - 0.2.0 - 最新版"
+    echo "  3, 矿池中转(可抽水)  - ubuntu20 - 0.2.0"
+    echo "  4, 矿池中转(可抽水)  - ubuntu20 - 0.2.1 - 最新版"
     echo "  0, 本地加密 - hiveos - win的话可直接下载"
     
 
@@ -151,7 +152,13 @@ install() {
         fi
         ;;
 
+    3)
+        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/0.2.1/mhminer  -O  /root/mhminer/mhminer
 
+        if test ! -f "$config_path"; then
+            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/0.2.1/config.yml  -O  /root/mhminer/config.yml
+        fi
+        ;;
 
 
    0)
