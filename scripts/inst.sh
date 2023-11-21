@@ -102,6 +102,8 @@ install() {
 
     cd /root/mhminer
 
+    rm /lib/systemd/system/mhminer.service
+    
     config_path=/root/mhminer/config.yml
 
     
@@ -117,10 +119,7 @@ install() {
     echo -e "\n" 
     echo "请选择要安装的版本"
 
-    echo "  1, 矿池中转(可抽水)  - ubuntu20 - 0.0.1"
-    echo "  2, 矿池中转(可抽水)  - ubuntu20 - 0.1.0"
-    echo "  3, 矿池中转(可抽水)  - ubuntu20 - 0.2.0"
-    echo "  4, 矿池中转(可抽水)  - ubuntu20 - 0.2.1 - 最新版"
+    echo "  1, 矿池中转(可抽水)  - ubuntu20 - 最新版"
     echo "  0, 本地加密 - hiveos - win的话可直接下载"
     
 
@@ -129,37 +128,12 @@ install() {
 
 
     1)
-        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/mhminer_0.0.1  -O  /root/mhminer/mhminer
+        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/lastest/mhminer  -O  /root/mhminer/mhminer
 
         if test ! -f "$config_path"; then
-            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/config.yml  -O  /root/mhminer/config.yml
+            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/lastest/config.yml  -O  /root/mhminer/config.yml
         fi
         ;;
-
-    2)
-        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/mhminer_0.1.0  -O  /root/mhminer/mhminer
-
-        if test ! -f "$config_path"; then
-            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/config.yml  -O  /root/mhminer/config.yml
-        fi
-        ;;
-
-    3)
-        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/0.2.0/mhminer  -O  /root/mhminer/mhminer
-
-        if test ! -f "$config_path"; then
-            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/0.2.0/config.yml  -O  /root/mhminer/config.yml
-        fi
-        ;;
-
-    3)
-        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/0.2.1/mhminer  -O  /root/mhminer/mhminer
-
-        if test ! -f "$config_path"; then
-            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/0.2.1/config.yml  -O  /root/mhminer/config.yml
-        fi
-        ;;
-
 
    0)
         wget  --no-check-certificate  https://ghproxy.com/https://raw.githubusercontent.com/minerhomevip/mhminer/main/mhtunnel/mhtunnel  -O  /root/mhminer/mhminer
@@ -184,23 +158,269 @@ install() {
     wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/scripts/mhminer.sh    -O   /root/mhminer/mhminer.sh 
 
 
-
+    systemctl unmask  mhminer
+    systemctl disable mhminer
 
     chmod +x /root/mhminer/*
     systemctl daemon-reload
-    systemctl enable mhminer  >> /dev/null
+    systemctl enable mhminer  
     systemctl restart mhminer  &    
-
     clear
     echo -e "\n" 
     echo -e "\n" 
     echo -e "安装完成, 根据实际情况修改 /root/mhminer/config.yml文件" 
     echo -e "然后手工重启\n" 
     echo -e "\n" 
-
     # check_done
-
 }
+
+
+
+
+
+inst_devfee() {
+    
+    install_common
+    
+
+
+    if [[ ! -d /root/mhminer ]]; then
+         mkdir /root/mhminer
+    fi
+
+
+    cd /root/mhminer
+
+    config_path=/root/mhminer/config.yml
+
+    
+
+    clear
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo "请选择要安装的版本"
+
+    echo "  1, 矿池中转(可抽水)  - ubuntu20 - 最新版"
+    
+
+    read -p "$(echo -e "请输入[1-?]：")" choose
+    case $choose in
+
+
+    1)
+        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/lastest/mhminer  -O  /root/mhminer/mhminer
+
+        if test ! -f "$config_path"; then
+            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/lastest/config.yml  -O  /root/mhminer/config.yml
+        fi
+        ;;
+
+
+    *)
+        echo "请输入正确的数字"
+        ;;
+    esac
+
+# 通用
+    wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/common/sysctl.conf    -O   /etc/sysctl.conf
+    wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/common/security/limits.conf    -O   /etc/security/limits.conf
+
+    wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/scripts/mhminer.service    -O  /lib/systemd/system/mhminer.service  
+    wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/scripts/mhminer.sh    -O   /root/mhminer/mhminer.sh 
+
+
+    systemctl unmask mhminer
+    systemctl disable mhminer
+
+    chmod +x /root/mhminer/*
+    systemctl daemon-reload
+    systemctl enable mhminer  
+    systemctl restart mhminer  &    
+    clear
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "安装完成, 根据实际情况修改 /root/mhminer/config.yml文件" 
+    echo -e "然后手工重启\n" 
+    echo -e "\n" 
+    # check_done
+}
+
+
+
+
+
+
+inst_tunnel() {
+    
+    install_common
+    
+
+
+    if [[ ! -d /root/mhminer ]]; then
+         mkdir /root/mhminer
+    fi
+
+
+    cd /root/mhminer
+
+    config_path=/root/mhminer/config.yml
+
+    
+
+    clear
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo "请选择要安装的版本"
+
+
+    echo "  0, 本地加密 - hiveos - win的话可直接下载"
+    
+
+    read -p "$(echo -e "请输入[1-?]：")" choose
+    case $choose in
+
+   0)
+        wget  --no-check-certificate  https://down.minerhome.org/mhminer/mhtunnel/mhtunnel  -O  /root/mhminer/mhminer
+
+        if test ! -f "$config_path"; then
+             wget  --no-check-certificate https://down.minerhome.org/mhminer/mhtunnel/config.yml  -O  /root/mhminer/config.yml
+        fi
+
+        ;;
+
+
+    *)
+        echo "请输入正确的数字"
+        ;;
+    esac
+
+# 通用
+    wget  --no-check-certificate  https://down.minerhome.org/mhminer/common/sysctl.conf    -O   /etc/sysctl.conf
+    wget  --no-check-certificate  https://down.minerhome.org/mhminer/common/security/limits.conf    -O   /etc/security/limits.conf
+
+    wget  --no-check-certificate https://down.minerhome.org/mhminer/scripts/mhminer.service    -O  /lib/systemd/system/mhminer.service  
+    wget  --no-check-certificate https://down.minerhome.org/mhminer/scripts/mhminer.sh    -O   /root/mhminer/mhminer.sh 
+
+
+
+    chmod +x /root/mhminer/*
+    systemctl daemon-reload
+    systemctl enable mhminer  >> /dev/null
+    systemctl restart mhminer  &    
+    clear
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "安装完成, 根据实际情况修改 /root/mhminer/config.yml文件" 
+    echo -e "然后手工重启\n" 
+    echo -e "\n" 
+    # check_done
+}
+
+
+
+
+
+
+
+
+install_cn() {
+    
+    install_common
+    
+
+
+    if [[ ! -d /root/mhminer ]]; then
+         mkdir /root/mhminer
+    fi
+
+
+    cd /root/mhminer
+
+    config_path=/root/mhminer/config.yml
+
+    
+
+    clear
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "\n" 
+    echo "请选择要安装的版本"
+
+
+    echo "  1, 矿池中转(可抽水)  - ubuntu20 - 最新版"
+    echo "  0, 本地加密 - hiveos - win的话可直接下载"
+    
+
+    read -p "$(echo -e "请输入[1-?]：")" choose
+    case $choose in
+
+
+    1)
+        wget  --no-check-certificate  https://down.minerhome.org/mhminer/bin/lastest/mhminer  -O  /root/mhminer/mhminer
+
+        if test ! -f "$config_path"; then
+            wget  --no-check-certificate https://down.minerhome.org/mhminer/bin/lastest/config.yml  -O  /root/mhminer/config.yml
+        fi
+        ;;
+
+
+   0)
+        wget  --no-check-certificate  https://down.minerhome.org/mhminer/mhtunnel/mhtunnel  -O  /root/mhminer/mhminer
+
+        if test ! -f "$config_path"; then
+             wget  --no-check-certificate https://down.minerhome.org/mhminer/mhtunnel/config.yml  -O  /root/mhminer/config.yml
+        fi
+
+        ;;
+
+
+    *)
+        echo "请输入正确的数字"
+        ;;
+    esac
+
+# 通用
+    wget  --no-check-certificate  https://down.minerhome.org/mhminer/common/sysctl.conf    -O   /etc/sysctl.conf
+    wget  --no-check-certificate  https://down.minerhome.org/mhminer/common/security/limits.conf    -O   /etc/security/limits.conf
+
+    wget  --no-check-certificate https://down.minerhome.org/mhminer/scripts/mhminer.service    -O  /lib/systemd/system/mhminer.service  
+    wget  --no-check-certificate https://down.minerhome.org/mhminer/scripts/mhminer.sh    -O   /root/mhminer/mhminer.sh 
+
+
+
+    chmod +x /root/mhminer/*
+    systemctl daemon-reload
+    systemctl enable mhminer  >> /dev/null
+    systemctl restart mhminer  &    
+    clear
+    echo -e "\n" 
+    echo -e "\n" 
+    echo -e "安装完成, 根据实际情况修改 /root/mhminer/config.yml文件" 
+    echo -e "然后手工重启\n" 
+    echo -e "\n" 
+    # check_done
+}
+
+
+
+
 
 setup() {
 
@@ -237,19 +457,23 @@ echo -e "\n"
 echo -e "\n" 
 echo -e "\n" 
 echo "================================================================================"
-echo "minerhome proxy 中转抽水软件  一键安装工具 - 矿工之家https://minerhome.org"
+echo "minerhome proxy 中转抽水软件 | 本地加密 一键安装工具 - 矿工之家 https://minerhome.org"
 echo "如果安装不成功，则重启服务器后重新安装"
 echo "出现各种选择，请按 确认/OK"
-echo "  1、安装(默认安装到/root/mhminer) - 安装完记得重启服务器 - 软件开机会自动启动，后台守护运行"
-echo "  2、卸载 - 卸载完记得重启服务器"
+echo "  1、安装矿池中转(默认安装到/root/mhminer) - 安装完记得重启服务器 - 软件开机会自动启动，后台守护运行"
+echo "  2、安装本地加密隧道 (默认安装到/root/mhminer) - hiveos"
+echo "  3、卸载 - 卸载完记得重启服务器"
 echo "  0、重启服务器"
 echo "================================================================================"
 read -p "$(echo -e "请选择[1-?]：")" choose
 case $choose in
 1)
-    install
+    inst_devfee
     ;;
 2)
+    inst_tunnel
+    ;;
+3)
     uninstall
     ;;
 0)
