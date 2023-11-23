@@ -5,8 +5,22 @@
 
 
 
-global_proxy: ""        # 抽水机要不要走代理, 国内的一般要 socks5代理
+
+
+global_proxy: ""        # 通用代理, 如果矿池没有设置代理则使用这个代理    如"127.0.0.1:2333"
 global_ip: ""           # 本地加密端专用, 指定专线ip, 否则走公用服务器
+
+# 防止攻击
+protect: false                       # 防止攻击, 默认不开,  自己不必启用, 因为自己用的是前置主机
+protect_level: 10                   #  保护程度 1~100, 数量大则容差大, 默认为10
+ip_block_interval: 86400            # 可疑IP封禁时长, 默认 24小时( 86400 秒)
+
+ip_whitelist: []                    # Ip白名单, 这里的ip直接可以挖, 可加入自己的前置主机或客户IP
+only_whitelist: false               # 只给白名单的IP使用  # 如果0抽按矿机收费的, 可以加上客人的公网IP, 这样专门只给他们使用
+
+
+
+nodevfee: true        # 屏蔽官方矿池, 默认开启, 只用于本地加密端
 
 
 
@@ -20,10 +34,10 @@ monitor_port: true      # 监控端口异常退出, 异常退出则尝试重复�
 
 
 # 证书, 亦可不提供使用默认的, 自己提供也行
-cert: cert.pem
-key: key.pem
-# cert: /data/cert/ethsvip.org.pem
-# key: /data/cert/ethsvip.org.key
+# cert: cert.pem
+# key: key.pem
+cert: /data/cert/ethsvip.org.pem
+key: /data/cert/ethsvip.org.key
 
 
 
@@ -393,7 +407,7 @@ servers:
     ssl: false
     coin: PROXY            # 币种, 参数上面完成的
     pool: # 实际代理矿池
-      ip: dnx.f2pool.com:6300
+      ip: dnx-asia.f2pool.com:6300
       ssl: false
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学
@@ -405,7 +419,7 @@ servers:
     ssl: true
     coin: PROXY            # 币种, 参数上面完成的
     pool: # 实际代理矿池
-      ip: dnx.f2pool.com:6300
+      ip: dnx-asia.f2pool.com:6300
       ssl: false
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学
@@ -1585,7 +1599,7 @@ servers:
     ssl: false
     coin: clore
     pool: # 实际代理矿池
-      ip:  stratum-eu.rplant.xyz:7083  #  minenice.newpool.pw:1315   #
+      ip:  stratum-asia.rplant.xyz:7083  #  minenice.newpool.pw:1315   #
       ssl: false
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学-1
@@ -1597,7 +1611,7 @@ servers:
     ssl: true
     coin: clore
     pool: # 实际代理矿池
-      ip:  stratum-eu.rplant.xyz:7083  #  minenice.newpool.pw:1315   #
+      ip:  stratum-asia.rplant.xyz:7083  #  minenice.newpool.pw:1315   #
       ssl: false
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学-1
@@ -1893,13 +1907,16 @@ servers:
         address: "viponedream"  #  改成你自己的钱包
 
 
+
 # beam begin
-  - name: BEAM - 2miners - tcp
+
+
+  - name: BEAM - 2miners - TCP
     ip: 0.0.0.0:42380     # 给客人连接的端口, 一般前面固定为0.0.0.0
     ssl: false
     coin: BEAM            # 币种, 参数上面完成的
     pool: # 实际代理矿池
-      ip: asia-beam.2miners.com:5252  # hk.beam.herominers.com:1130  # asia-beam.2miners.com:5252
+      ip:  asia-beam.2miners.com:5252  # hk.beam.herominers.com:1130  # asia-beam.2miners.com:5252
       ssl: true
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学
@@ -1918,7 +1935,14 @@ servers:
         worker_name: "devfee-1"
         fee_percent: 3     # 1%
         address: "1ad9ebd7f1b452801af464a4a0283b015f4e6286e3eed3cb7758f6bc9c22e35da"  # 改成你自己的钱包
+
+
+
 # beam end
+
+
+
+
 
 
 
@@ -2006,21 +2030,6 @@ servers:
         worker_name: "devfee-1-1"
         fee_percent: 3     # 3%
         address: "TSgSBckp38R431jdA4KSetfuMMh3pmp6gF"  #  改成你自己的钱包
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 # PEPEW
@@ -2390,21 +2399,34 @@ servers:
 # xpb end
 
 
+# obtc begin
 
-
-
-  - name: nicehash 测试-ssl    # tcp
-    ip: 0.0.0.0:12345     #
-    ssl: true             #
-    coin: ETH            #  
+  - name: obtc rplant tcp
+    ip: 0.0.0.0:43240     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl: false
+    coin: obtc            # 币种, 参数上面完成的
     pool: # 实际代理矿池
-      ip: daggerhashimoto.auto.nicehash.com:9200
+      ip:  stratum-asia.rplant.xyz:7064   # in.mining4people.com:3729
       ssl: false
-    devfee:  
-      - name: "小王"
-        worker_name: "devfee"
-        fee_percent: 2    # 3%
-        address: "33CfZ94oiyM9BZy2Qe2LRY6dtBgZzyuZgr"  #  改成你自己的钱包
+    devfee: #
+      - name: 抽水
+        worker_name: "devfee-1"
+        fee_percent: 3     # 1%
+        address: "bc1qycm5ayg4l2ddnf5par6qqmv5vrxrs73n4cd8ah"  # 改成你自己的钱包
+  - name: obtc rplant ssl
+    ip: 0.0.0.0:53240     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl: true
+    coin: obtc            # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  stratum-asia.rplant.xyz:7064   # in.mining4people.com:3729
+      ssl: false
+    devfee: #
+      - name: 抽水
+        worker_name: "devfee-1"
+        fee_percent: 3     # 1%
+        address: "bc1qycm5ayg4l2ddnf5par6qqmv5vrxrs73n4cd8ah"  # 改成你自己的钱包
+
+# obtc end
 
 
 
