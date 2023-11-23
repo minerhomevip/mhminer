@@ -1,2 +1,0 @@
-
-python mhminer.py
