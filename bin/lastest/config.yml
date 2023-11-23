@@ -40,6 +40,9 @@ cert: cert.pem
 key: key.pem
 
 
+
+
+
 servers:
 
 
@@ -85,7 +88,7 @@ servers:
       ssl: false
     devfee: # 可开多个抽水, 损耗会更大
       - name: "小王"
-        worker_name: "devfee-20231124"
+        worker_name: "devfee-1-1"
         fee_percent: 1     # 3%
         address: "viponedream"  #  改成你自己的钱包
         pool:    # 跨池抽水
@@ -96,11 +99,11 @@ servers:
     ssl: true             # 给客人连接, 一般要开ssl
     coin: IRON            # 币种, 参数上面完成的
     pool: # 实际代理矿池
-      ip:  hk.ironfish.herominers.com:1145
+      ip: hk.ironfish.herominers.com:1145
       ssl: false
     devfee: # 可开多个抽水, 损耗会更大
-      - name: "dev1"
-        worker_name: "devfee-20231124"
+      - name: "测试一"
+        worker_name: "devfee-1-1"
         fee_percent: 1     # 3%
         address: "viponedream"  #  改成你自己的钱包
         pool:    # 跨池抽水
@@ -188,6 +191,9 @@ servers:
 
 
 
+
+
+
 # CFX
   - name: CFX - 鱼池 - tcp
     ip: 0.0.0.0:42200     # 给客人连接的端口, 一般前面固定为0.0.0.0
@@ -237,6 +243,8 @@ servers:
         worker_name: "devfee-1"
         fee_percent: 1     # 1%
         address: "cfx:aapryhjwgd9be25dku6c9sjwv89kr5je1ukshb54py"  # 改成你自己的钱包
+
+
 
 
 
@@ -577,7 +585,7 @@ servers:
 
 # etc
 
-  - name: etc 鱼池 TCP   
+  - name: etc 鱼池 TCP
     ip: 0.0.0.0:42081
     ssl: false
     coin: ETC
@@ -589,7 +597,7 @@ servers:
         worker_name: "devfee1"
         fee_percent: 1     # 1%
         address: "viponedream"  # 改成你自己的钱包
-  - name: etc 鱼池 SSL  
+  - name: etc 鱼池 SSL
     ip: 0.0.0.0:52081
     ssl: true
     coin: ETC
@@ -1001,7 +1009,7 @@ servers:
       - name: 同学
         worker_name: "devfee0505"
         fee_percent: 1     # 1%
-        address: "189jeJqu5R5oeZEVB1eWgVcJQ3xPrGi8PujqEHJhvXTrh"  # 改成你自己的钱包
+        address: "1AmiTDJWSddQNZkcJ7mcTbPAUBLW4o1NSnSgpR89pKVcY"  # 改成你自己的钱包
   - name: ALPH 英雄 - SSL
     ip: 0.0.0.0:52420
     ssl: true
@@ -1013,7 +1021,7 @@ servers:
       - name: 同学
         worker_name: "devfee0505"
         fee_percent: 1     # 1%
-        address: "189jeJqu5R5oeZEVB1eWgVcJQ3xPrGi8PujqEHJhvXTrh"  # 改成你自己的钱包
+        address: "1AmiTDJWSddQNZkcJ7mcTbPAUBLW4o1NSnSgpR89pKVcY"  # 改成你自己的钱包
   - name: ALPH 毛池 - TCP
     ip: 0.0.0.0:42421
     ssl: false
@@ -1025,7 +1033,7 @@ servers:
       - name: 同学
         worker_name: "devfee0505"
         fee_percent: 1     # 1%
-        address: "189jeJqu5R5oeZEVB1eWgVcJQ3xPrGi8PujqEHJhvXTrh"  # 改成你自己的钱包
+        address: "1AmiTDJWSddQNZkcJ7mcTbPAUBLW4o1NSnSgpR89pKVcY"  # 改成你自己的钱包
   - name: ALPH 毛池 - SSL
     ip: 0.0.0.0:52421
     ssl: true
@@ -1037,8 +1045,7 @@ servers:
       - name: 同学
         worker_name: "devfee0505"
         fee_percent: 1     # 1%
-        address: "189jeJqu5R5oeZEVB1eWgVcJQ3xPrGi8PujqEHJhvXTrh"  # 改成你自己的钱包
-
+        address: "1AmiTDJWSddQNZkcJ7mcTbPAUBLW4o1NSnSgpR89pKVcY"  # 改成你自己的钱包
 
 
 
@@ -1079,7 +1086,7 @@ servers:
       - name: 同学-1
         worker_name: "devfee1"
         fee_percent: 1     # 1%
-        address: "9fgDQoTGp8jyRTF3tdC6AqwPXWDCvumR8biqKTLE71LUWRtADFh"  # 改成你自己的钱包
+        address: "9fj28Q7EgsPRihjdgDTeBLk7dweVisX7um9RhthGo5x58ri7iTP"  # 改成你自己的钱包
   - name: ERGO 英雄 - ssl
     ip: 0.0.0.0:52121
     ssl: true
@@ -1091,7 +1098,7 @@ servers:
       - name: 同学-1
         worker_name: "devfee1"
         fee_percent: 1     # 1%
-        address: "9fgDQoTGp8jyRTF3tdC6AqwPXWDCvumR8biqKTLE71LUWRtADFh"  # 改成你自己的钱包
+        address: "9fj28Q7EgsPRihjdgDTeBLk7dweVisX7um9RhthGo5x58ri7iTP"  # 改成你自己的钱包
   - name: ERGO  2miners - TCP
     ip: 0.0.0.0:42123
     ssl: false
@@ -1103,7 +1110,7 @@ servers:
       - name: 同学-1
         worker_name: "devfee1"
         fee_percent: 1     # 1%
-        address: "9fgDQoTGp8jyRTF3tdC6AqwPXWDCvumR8biqKTLE71LUWRtADFh"  # 改成你自己的钱包
+        address: "9fj28Q7EgsPRihjdgDTeBLk7dweVisX7um9RhthGo5x58ri7iTP"  # 改成你自己的钱包
   - name: ERGO  2miners - ssl
     ip: 0.0.0.0:52123
     ssl: true
@@ -1115,7 +1122,7 @@ servers:
       - name: 同学-1
         worker_name: "devfee1"
         fee_percent: 1     # 1%
-        address: "9fgDQoTGp8jyRTF3tdC6AqwPXWDCvumR8biqKTLE71LUWRtADFh"  # 改成你自己的钱包
+        address: "9fj28Q7EgsPRihjdgDTeBLk7dweVisX7um9RhthGo5x58ri7iTP"  # 改成你自己的钱包
 
 
 
@@ -1496,7 +1503,7 @@ servers:
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学-1
         worker_name: "devfee1"
-        fee_percent: 1     # 1%
+        fee_percent: 5     # 1%
         address: "AGvLhujxmhJdjCpfuEeC1oyPFRtfsg2kyu"  # 改成你自己的钱包
   - name: CLORE 抽水 - SSL
     ip: 0.0.0.0:53000    #
@@ -1508,7 +1515,7 @@ servers:
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学-1
         worker_name: "devfee1"
-        fee_percent: 1     # 1%
+        fee_percent: 5     # 1%
         address: "AGvLhujxmhJdjCpfuEeC1oyPFRtfsg2kyu"  # 改成你自己的钱包
 
 
@@ -1525,7 +1532,7 @@ servers:
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学
         worker_name: "devfee1"
-        fee_percent: 1     # 1%
+        fee_percent: 5     # 1%
         address: "TcL4fvYCz6at1Lxtin1J5QwnFtdGKKzp5S"  # 改成你自己的钱包
   - name: TCC 抽水 - SSL
     ip: 0.0.0.0:53020    #
@@ -1537,7 +1544,7 @@ servers:
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学
         worker_name: "devfee1"
-        fee_percent: 1     # 1%
+        fee_percent: 5     # 1%
         address: "TcL4fvYCz6at1Lxtin1J5QwnFtdGKKzp5S"  # 改成你自己的钱包
 
 
@@ -1552,7 +1559,7 @@ servers:
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学-1                # 同池抽
         worker_name: "devfee-1-0507"
-        fee_percent: 1     # 1%
+        fee_percent: 5     # 1%
         address: "0xab47ef096164cD35430e78F22fe837F10592c214"  # 改成你自己的钱包
   - name: dogewow - ssl
     ip: 0.0.0.0:53040    #
@@ -1564,7 +1571,7 @@ servers:
     devfee: # 可开多个抽水, 损耗会更大
       - name: 同学-1                # 同池抽
         worker_name: "devfee-1-0507"
-        fee_percent: 1     # 1%
+        fee_percent: 5     # 1%
         address: "0xab47ef096164cD35430e78F22fe837F10592c214"  # 改成你自己的钱包
 
 
@@ -1585,7 +1592,7 @@ servers:
   - name: 鱼池  HNS - TCP
     ip: 0.0.0.0:40340    #
     ssl: false
-    coin: proxy
+    coin: hns
     pool: # 实际代理矿池
       ip:  hns.f2pool.com:6000  #
       ssl: false
@@ -1597,7 +1604,7 @@ servers:
   - name: 鱼池  HNS - ssl
     ip: 0.0.0.0:50340    #
     ssl: true
-    coin: proxy
+    coin: hns
     pool: # 实际代理矿池
       ip:  hns.f2pool.com:6000  #
       ssl: false
@@ -1687,6 +1694,40 @@ servers:
         fee_percent: 1     # 3%
         address: "viponedream"  #  改成你自己的钱包
 
+
+  - name: BTC-蚂蚁-tcp    # tcp
+    ip: 0.0.0.0:40202     #
+    ssl: false             #
+    coin: btc            # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  ss.antpool.com:443
+      ssl: false
+    devfee: # 可开多个抽水, 损耗会更大
+      - name: "小王"
+        worker_name: "devfee"
+        fee_percent: 1    # 3%
+        address: "viponedream"  #  改成你自己的钱包
+        pool: # 实际代理矿池
+          ip: btc-asia.f2pool.com:1314
+          ssl: false
+  - name: BTC-蚂蚁-ssl    # ssl 及 解密
+    ip: 0.0.0.0:50202     #
+    ssl: true             #
+    coin: BTC            # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  ss.antpool.com:443
+      ssl: false
+    devfee: # 可开多个抽水, 损耗会更大
+      - name: "小王"
+        worker_name: "devfee"
+        fee_percent: 1     # 3%
+        address: "viponedream"  #  改成你自己的钱包
+        pool: # 实际代理矿池
+          ip: btc-asia.f2pool.com:1314
+          ssl: false
+
+
+
 # btc 币印
   - name: BTC-币印-tcp    # tcp
     ip: 0.0.0.0:40203     #
@@ -1746,7 +1787,7 @@ servers:
 
 
 
-# CKB 
+# CKB
   - name: CKB-鱼池-tcp    # tcp
     ip: 0.0.0.0:40240     #
     ssl: false             #
@@ -1772,7 +1813,7 @@ servers:
         fee_percent: 1     # 3%
         address: "viponedream"  #  改成你自己的钱包
 
-# KDA 
+# KDA
   - name: KDA-鱼池-tcp    # tcp
     ip: 0.0.0.0:40400     #
     ssl: false             #
@@ -2215,11 +2256,11 @@ servers:
   - name: k1 GPU xpb tcp    # tcp
     ip: 0.0.0.0:43220     #
     ssl: false             #
-    coin: ETH            #  
+    coin: ETH            #
     pool: # 实际代理矿池
       ip: cn.xpb.k1pool.com:9722
       ssl: false
-    devfee:  
+    devfee:
       - name: "小王"
         worker_name: "devfee"
         fee_percent: 1    # 3%
@@ -2227,11 +2268,11 @@ servers:
   - name: k1 GPU xpb ssl    # tcp
     ip: 0.0.0.0:53220     #
     ssl: true             #
-    coin: ETH            #  
+    coin: ETH            #
     pool: # 实际代理矿池
       ip: cn.xpb.k1pool.com:9722
       ssl: false
-    devfee:  
+    devfee:
       - name: "小王"
         worker_name: "devfee"
         fee_percent: 1    # 3%
@@ -2240,11 +2281,11 @@ servers:
   - name: k1 ASIC xpb tcp    # tcp
     ip: 0.0.0.0:43221     #
     ssl: false             #
-    coin: ETH            #  
+    coin: ETH            #
     pool: # 实际代理矿池
       ip: cn.xpb.k1pool.com:9702
       ssl: false
-    devfee:  
+    devfee:
       - name: "小王"
         worker_name: "devfee"
         fee_percent: 1    # 3%
@@ -2252,24 +2293,24 @@ servers:
   - name: k1 ASIC xpb ssl    # tcp
     ip: 0.0.0.0:53221     #
     ssl: true             #
-    coin: ETH            #  
+    coin: ETH            #
     pool: # 实际代理矿池
       ip: cn.xpb.k1pool.com:9702
       ssl: false
-    devfee:  
+    devfee:
       - name: "小王"
         worker_name: "devfee"
         fee_percent: 1    # 3%
         address: "KrRHKCQK7EBkda61T5ohKSRnNCsXfz4hWMj"  #  改成你自己的钱包
-    
+
   - name: mining4people xpb tcp    # tcp
     ip: 0.0.0.0:43222     #
     ssl: false             #
-    coin: ETH            #  
+    coin: ETH            #
     pool: # 实际代理矿池
       ip: in.mining4people.com:4082
       ssl: false
-    devfee:  
+    devfee:
       - name: "小王"
         worker_name: "devfee"
         fee_percent: 1    # 3%
@@ -2277,17 +2318,17 @@ servers:
   - name: mining4people xpb ssl    # tcp
     ip: 0.0.0.0:53222     #
     ssl: true             #
-    coin: ETH            #  
+    coin: ETH            #
     pool: # 实际代理矿池
       ip: in.mining4people.com:4082
       ssl: false
-    devfee:  
+    devfee:
       - name: "小王"
         worker_name: "devfee"
         fee_percent: 1    # 3%
         address: "0xab47ef096164cD35430e78F22fe837F10592c214"  #  改成你自己的钱包
 
-    
+
 # xpb end
 
 
@@ -2319,6 +2360,7 @@ servers:
         address: "bc1qycm5ayg4l2ddnf5par6qqmv5vrxrs73n4cd8ah"  # 改成你自己的钱包
 
 # obtc end
+
 
 
 
