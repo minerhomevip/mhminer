@@ -41,7 +41,7 @@
 &nbsp; 香港服务器上执行一键安装脚本 (ubuntu20)
 ```
 
-bash <(curl -s -L https://raw.githubusercontent.com/minerhomevip/mhminer/main/scripts/inst.sh)
+bash <(curl -s -L https://raw.githubusercontent.com/minerhomevip/mhminer/main/scripts/inst_cn.sh)
 
 
 ```
