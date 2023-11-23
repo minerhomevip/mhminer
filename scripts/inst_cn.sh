@@ -214,10 +214,10 @@ inst_devfee() {
 
 
     1)
-        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/lastest/mhminer  -O  /root/mhminer/mhminer
+        wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/lastest/mhminer  -O  /root/mhminer/mhminer
 
         if test ! -f "$config_path"; then
-            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/lastest/config.yml  -O  /root/mhminer/config.yml
+            wget  --no-check-certificate https://raw.githubusercontent.com/minerhomevip/mhminer/main/bin/lastest/config.yml  -O  /root/mhminer/config.yml
         fi
         ;;
 
