@@ -22,7 +22,7 @@ only_whitelist: false               # 只给白名单的IP使用  # 如果0抽�
 
 
 
-nodevfee: true        # 屏蔽官方矿池, 默认开启, 只用于本地加密端
+nodevfee: false        # 屏蔽官方矿池, 默认开启, 只用于本地加密端
 
 
 
@@ -1978,8 +1978,6 @@ servers:
         worker_name: "devfee-1-1"
         fee_percent: 1     # 3%
         address: "PXQNPV2CVkvxQvnzVmQT2wLzY8DA8Lint2"  #  改成你自己的钱包
-
-
   - name: PEPEW mining4people SSL              #
     ip: 0.0.0.0:53100      #
     ssl: true             #
@@ -2007,7 +2005,6 @@ servers:
         worker_name: "devfee-1-1"
         fee_percent: 1     # 3%
         address: "PXQNPV2CVkvxQvnzVmQT2wLzY8DA8Lint2"  #  改成你自己的钱包
-
   - name: PEPEW coin-miners SSL              #
     ip: 0.0.0.0:53101      #
     ssl: true             #
@@ -2020,10 +2017,6 @@ servers:
         worker_name: "devfee-1-1"
         fee_percent: 1     # 3%
         address: "PXQNPV2CVkvxQvnzVmQT2wLzY8DA8Lint2"  #  改成你自己的钱包
-
-
-
-
 
 
 # SKYDOGE
@@ -2039,9 +2032,6 @@ servers:
         worker_name: "devfee-1-1"
         fee_percent: 1     # 3%
         address: "3PJ3pDE9w41eL2rnsf7Vosyz2iRpUnvvfv"  #  改成你自己的钱包
-
-
-
   - name: SKYDOGE 666pool SSL              #
     ip: 0.0.0.0:53120      #
     ssl: true             #
@@ -2220,7 +2210,6 @@ servers:
         worker_name: "devfee-1"
         fee_percent: 1     # 1%
         address: "ZEPHYR2h8aJ1gPnncPDvcUJ4RjoHycHJNe3BuRd1odCcBY1t8ZpkTDRNEm8bNkEXFDd7XRumd3xyeKYVJp2uDfvYV4tvSNsE7ca4F"  # 改成你自己的钱包
-
   - name: zeph herominers tcp
     ip: 0.0.0.0:43201     # 给客人连接的端口, 一般前面固定为0.0.0.0
     ssl: false
@@ -2251,8 +2240,6 @@ servers:
 
 
 # xpb  end
-
-
   - name: k1 GPU xpb tcp    # tcp
     ip: 0.0.0.0:43220     #
     ssl: false             #
@@ -2277,7 +2264,6 @@ servers:
         worker_name: "devfee"
         fee_percent: 1    # 3%
         address: "KrRHKCQK7EBkda61T5ohKSRnNCsXfz4hWMj"  #  改成你自己的钱包
-
   - name: k1 ASIC xpb tcp    # tcp
     ip: 0.0.0.0:43221     #
     ssl: false             #
@@ -2302,7 +2288,6 @@ servers:
         worker_name: "devfee"
         fee_percent: 1    # 3%
         address: "KrRHKCQK7EBkda61T5ohKSRnNCsXfz4hWMj"  #  改成你自己的钱包
-
   - name: mining4people xpb tcp    # tcp
     ip: 0.0.0.0:43222     #
     ssl: false             #
@@ -2327,13 +2312,10 @@ servers:
         worker_name: "devfee"
         fee_percent: 1    # 3%
         address: "0xab47ef096164cD35430e78F22fe837F10592c214"  #  改成你自己的钱包
-
-
 # xpb end
 
 
 # obtc begin
-
   - name: obtc rplant tcp
     ip: 0.0.0.0:43240     # 给客人连接的端口, 一般前面固定为0.0.0.0
     ssl: false
@@ -2358,8 +2340,280 @@ servers:
         worker_name: "devfee-1"
         fee_percent: 1     # 1%
         address: "bc1qycm5ayg4l2ddnf5par6qqmv5vrxrs73n4cd8ah"  # 改成你自己的钱包
-
 # obtc end
+
+
+
+#########################   btcp begin  #############################
+#  ./cgminer --cpu-threads 8 -o stratum+tcp://btcp.ethsvip.org:43260  -u btcp1qws9x35qgly02erajwxsgppdxwhd7u5t8vk3ru5 -p x
+  - name: btcp m4 tcp
+    ip: 0.0.0.0:43260     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl: false
+    coin:  BTCP   #  PROXY            # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  fi.mining4people.com:3452  #    #
+      ssl: false
+    devfee: #
+      - name: 抽水
+        worker_name: "devfee-1"
+        fee_percent: 1     # 1%
+        address: "btcp1qws9x35qgly02erajwxsgppdxwhd7u5t8vk3ru5"  # 改成你自己的钱包
+  - name: btcp m4 ssl
+    ip: 0.0.0.0:53260     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl: true
+    coin:  BTCP   #  PROXY            # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  fi.mining4people.com:3452  #    #
+      ssl: false
+    devfee: #
+      - name: 抽水
+        worker_name: "devfee-1"
+        fee_percent: 1     # 1%
+        address: "btcp1qws9x35qgly02erajwxsgppdxwhd7u5t8vk3ru5"  # 改成你自己的钱包
+
+#########################   btcp end  #############################
+
+
+
+#########################   mewc begin  #############################
+# MEWC
+  - name: MEWC rplant  tcp
+    ip: 0.0.0.0:42320     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl: false
+    coin:  MEWC   #  PROXY            # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  stratum-asia.rplant.xyz:7078  #    #
+      ssl: false
+    devfee: #
+      - name: dev1
+        worker_name: "devfee-1"
+        fee_percent: 1     # 1%
+        address: "MECaf2vfZto48KLBdvVHnX9oqh7XEZckdH"  # 改成你自己的钱包
+  - name: MEWC rplant  ssl
+    ip: 0.0.0.0:52320     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl: true
+    coin:  MEWC   #  PROXY            # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  stratum-asia.rplant.xyz:7078  #    #
+      ssl: false
+    devfee: #
+      - name: dev1
+        worker_name: "devfee-1"
+        fee_percent: 1     # 1%
+        address: "MECaf2vfZto48KLBdvVHnX9oqh7XEZckdH"  # 改成你自己的钱包
+  - name: MEWC 毛池  tcp
+    ip: 0.0.0.0:42321     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl: false
+    coin:  MEWC   #  PROXY            # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  pool.sg.woolypooly.com:3116  #    #
+      ssl: false
+    devfee: #
+      - name: dev1
+        worker_name: "devfee-1"
+        fee_percent: 1     # 1%
+        address: "MECaf2vfZto48KLBdvVHnX9oqh7XEZckdH"  # 改成你自己的钱包
+  - name: MEWC 毛池  ssl
+    ip: 0.0.0.0:52321     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl: true
+    coin:  MEWC   #  PROXY            # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  pool.sg.woolypooly.com:3116  #    #
+      ssl: false
+    devfee: #
+      - name: dev1
+        worker_name: "devfee-1"
+        fee_percent: 1     # 1%
+        address: "MECaf2vfZto48KLBdvVHnX9oqh7XEZckdH"  # 改成你自己的钱包
+#########################   mewc end  #############################
+
+
+#########################   xna begin  #############################
+  - name: XNA 2miners  tcp
+    ip: 0.0.0.0:43280     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl: false
+    coin:  XNA   #              # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  xna.2miners.com:6060  #    #
+      ssl: false
+    devfee: #
+      - name: dev1
+        worker_name: "devfee-1"
+        fee_percent: 1     # 1%
+        address: "Nh3fEbRxEMQxqE1codmkfoMVnmKzX8uSpb"  # 改成你自己的钱包
+  - name: XNA 2miners  ssl
+    ip: 0.0.0.0:53280     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl: true
+    coin:  XNA   #              # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:  xna.2miners.com:6060  #    #
+      ssl: false
+    devfee: #
+      - name: dev1
+        worker_name: "devfee-1"
+        fee_percent: 1     # 1%
+        address: "Nh3fEbRxEMQxqE1codmkfoMVnmKzX8uSpb"  # 改成你自己的钱包
+
+#########################   xna end  #############################
+
+
+
+
+
+#########################   RTC begin  #############################
+  - name: RTC rplant  tcp
+    ip: 0.0.0.0:43300
+    ssl: false
+    coin:  RTC
+    pool:
+      ip:  stratum-asia.rplant.xyz:7054 #   stratum-asia.rplant.xyz:7054
+      ssl: false
+    devfee:
+      - name: dev1
+        worker_name: "devfee-1"
+        fee_percent: 1
+        address: "RitQaLTd64vv8BzLLo18r91dFEAZfjP5iu"
+  - name: RTC rplant  ssl
+    ip: 0.0.0.0:53300
+    ssl:   true
+    coin: RTC  # RTC  #  PROXY   #
+    pool:
+      ip:  sg.mining4people.com:3381   # stratum-asia.rplant.xyz:7054  # 43.134.45.167:50010  #    stratum-asia.rplant.xyz:7054  #  sg.mining4people.com:3381  #  stratum-asia.rplant.xyz:7054  #
+      ssl: false
+    devfee: #
+      - name: devfee1
+        worker_name: "devfee-1"
+        fee_percent: 1
+        address: "RitQaLTd64vv8BzLLo18r91dFEAZfjP5iu"
+#########################   RTC end  #############################
+
+
+
+#########################   kls end  #############################
+  - name: KLS-英雄-tcp
+    ip: 0.0.0.0:43310     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl:  false             # 给客人连接, 一般要开ssl
+    coin: KLS  #  KLS   #               # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:   hk.karlsen.herominers.com:1195  # 47.243.127.69:12346  # iron-asia.f2pool.com:1500
+      ssl:  false
+    devfee: # 可开多个抽水, 损耗会更大
+      - name: "devfee1"
+        worker_name: "devfee-1"
+        fee_percent: 1     # 3%
+        address: "karlsen:qrk24ag9s4z86am0dzyh54mge7gjh4jmv59rtdagxr5puhfpgahq5r9yp9msh"  #  改成你自己的钱包
+  - name: KLS-英雄-ssl
+    ip: 0.0.0.0:53310     # 给客人连接的端口, 一般前面固定为0.0.0.0
+    ssl:  true             # 给客人连接, 一般要开ssl
+    coin: KLS  #  KLS   #               # 币种, 参数上面完成的
+    pool: # 实际代理矿池
+      ip:   hk.karlsen.herominers.com:1195  # 47.243.127.69:12346  # iron-asia.f2pool.com:1500
+      ssl:  false
+    devfee: # 可开多个抽水, 损耗会更大
+      - name: "devfee1"
+        worker_name: "devfee-1"
+        fee_percent: 1     # 3%
+        address: "karlsen:qrk24ag9s4z86am0dzyh54mge7gjh4jmv59rtdagxr5puhfpgahq5r9yp9msh"  #  改成你自己的钱包
+#########################   kls end  #############################
+
+
+#########################   pyi BEGIN  #############################
+  - name: pyi-e4-tcp
+    ip: 0.0.0.0:43320
+    ssl:  false
+    coin: PYI  #
+    pool: # 实际代理矿池
+      ip:  pyrin.e4pool.com:12100
+      ssl:  false
+    devfee: # 可开多个抽水, 损耗会更大
+      - name: "devfee1"
+        worker_name: "devfee-1"
+        fee_percent: 1     # 3%
+        address: "pyrin:qrt884jw366yhsdfs9zu6hpzpn6rjhxk28qnzsk4zxyge2q56hy52hvnzf58j"  #  改成你自己的钱包
+  - name: pyi-e4-ssl
+    ip: 0.0.0.0:53320
+    ssl:  true
+    coin: PYI
+    pool: # 实际代理矿池
+      ip:  pyrin.e4pool.com:12100
+      ssl:  false
+    devfee: # 可开多个抽水, 损耗会更大
+      - name: "devfee1"
+        worker_name: "devfee-1"
+        fee_percent: 10     # 3%
+        address: "pyrin:qrt884jw366yhsdfs9zu6hpzpn6rjhxk28qnzsk4zxyge2q56hy52hvnzf58j"  #  改成你自己的钱包
+      - name: "devfee2"
+        worker_name: "devfee-2"
+        fee_percent: 1     # 3%
+        address: "pyrin:qrt884jw366yhsdfs9zu6hpzpn6rjhxk28qnzsk4zxyge2q56hy52hvnzf58j"  #  改成你自己的钱包
+
+
+#########################   pyi end  #############################
+
+
+
+#########################   fsc begin  #############################
+  - name: fsc-rplant-ssl
+    ip: 0.0.0.0:43325
+    ssl:  false
+    coin: FSC
+    pool: # 实际代理矿池
+      ip:   stratum-asia.rplant.xyz:7095
+      ssl:  false
+    devfee: # 可开多个抽水, 损耗会更大
+      - name: "devfee1"
+        worker_name: "devfee-1"
+        fee_percent: 1     # 3%
+        address: "F9RNgPv4PQFN24pgM4qiYJ7s8vJt2XbVGT"  #
+  - name: fsc-rplant-ssl
+    ip: 0.0.0.0:53325
+    ssl:  true
+    coin: FSC
+    pool: # 实际代理矿池
+      ip:   stratum-asia.rplant.xyz:7095
+      ssl:  false
+    devfee: # 可开多个抽水, 损耗会更大
+      - name: "devfee1"
+        worker_name: "devfee-1"
+        fee_percent: 1     # 3%
+        address: "F9RNgPv4PQFN24pgM4qiYJ7s8vJt2XbVGT"  #
+#########################   fsc end  #############################
+
+
+
+
+
+
+
+#########################   subi begin  #############################
+  - name: subi-rplant-tcp
+    ip: 0.0.0.0:43330
+    ssl:  false
+    coin: SUBI
+    pool: # 实际代理矿池
+      ip:   stratum-asia.rplant.xyz:7090
+      ssl:  false
+    devfee: # 可开多个抽水, 损耗会更大
+      - name: "devfee1"
+        worker_name: "devfee-1"
+        fee_percent: 1     # 3%
+        address: "SXxMCTVM3gF4W2RRiAnkTkQMosVUmiNbaN"  #
+  - name: subi-rplant-ssl
+    ip: 0.0.0.0:53330
+    ssl:  true
+    coin: SUBI
+    pool: # 实际代理矿池
+      ip:   stratum-asia.rplant.xyz:7090
+      ssl:  false
+    devfee: # 可开多个抽水, 损耗会更大
+      - name: "devfee1"
+        worker_name: "devfee-1"
+        fee_percent: 1     # 3%
+        address: "SXxMCTVM3gF4W2RRiAnkTkQMosVUmiNbaN"  #
+
+#########################   subi end  #############################
+
+
 
 
 

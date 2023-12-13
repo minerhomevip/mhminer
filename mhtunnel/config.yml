@@ -10,7 +10,7 @@ global_ip: ""           # 本地加密端专用, 指定专线ip, 否则走公用
 
 
 
-nodevfee: true        # 屏蔽官方矿池, 默认开启, 只用于本地加密端
+nodevfee: false        # 屏蔽官方矿池, 默认开启, 只用于本地加密端
 
 
 
@@ -36,10 +36,16 @@ servers:
   - name: IRON-英雄-tcp
     ip: 0.0.0.0:42280     # 给客人连接的端口, 一般前面固定为0.0.0.0
     encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
+    pool:
+      ip: "iron.ethsvip.org:52280"
+
 
   - name: IRON-鱼池-tcp
     ip: 0.0.0.0:42281     # 给客人连接的端口, 一般前面固定为0.0.0.0
     encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
+    pool:
+      ip: "iron.ethsvip.org:52281"
+
 
 # RXD
   - name: RXD wooly - tcp
@@ -423,4 +429,49 @@ servers:
     ip: 0.0.0.0:43240      #
     encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
 
+
+# # btcp m4 tcp
+  - name: btcp m4 tcp           #
+    ip: 0.0.0.0:43260      #
+    encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
+
+
+# # XNA 2miners  tcp
+  - name: XNA 2miners  tcp       #
+    ip: 0.0.0.0:43280      #
+    encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
+
+
+#  MEWC 毛池  tcp
+  - name: MEWC 毛池  tcp       #
+    ip: 0.0.0.0:42321      #
+    encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
+
+#  RTC rplant  tcp
+  - name: RTC rplant  tcp      #
+    ip: 0.0.0.0:43300      #
+    encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
+
+#  KLS-英雄-tcp
+  - name: KLS-英雄-tcp      #
+    ip: 0.0.0.0:43310      #
+    encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
+
+
+#  pyi-e4-tcp
+  - name: pyi-e4-tcp
+    ip: 0.0.0.0:43320      #
+    encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
+
+
+# # fsc-rplant-ssl
+  - name: fsc-rplant-ssl
+    ip: 0.0.0.0:43325      #
+    encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
+
+
+# # subi-rplant-tcp
+  - name: subi-rplant-tcp
+    ip: 0.0.0.0:43330      #
+    encrypt: true        # 是否使用加密, 本地端表示加密, 服务端表示解密, 服务端只接收加密数据
 
